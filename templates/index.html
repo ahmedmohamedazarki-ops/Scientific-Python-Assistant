@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>المساعد العلمي - Python & Web</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f7f6;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #1a73e8;
+        }
+
+        section {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 60%;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f0fe;
+            color: #174ea6;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>المساعد العلمي 🚀</h1>
+
+        <!-- نموذج الفيزياء -->
+        <section>
+            <form method="POST">
+                <input type="hidden" name="action" value="physics">
+                <input type="number" name="mass" placeholder="الكتلة (kg)" required>
+                <button type="submit">حساب الوزن</button>
+            </form>
+        </section>
+
+        <!-- نموذج الرياضيات -->
+        <section>
+            <form method="POST">
+                <input type="hidden" name="action" value="math">
+                <input type="number" name="num" placeholder="عدد عشري" required>
+                <button type="submit">تحويل ثنائي</button>
+            </form>
+        </section>
+
+        <!-- نموذج الـ API -->
+        <section>
+            <form method="POST">
+                <input type="hidden" name="action" value="api">
+                <input type="text" name="term" placeholder="مصطلح علمي (EN)" required>
+                <button type="submit">بحث API</button>
+            </form>
+        </section>
+
+        <!-- عرض النتائج -->
+        {% if result %}
+        <div class="result">
+            {{ result }}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
